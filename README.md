@@ -5,9 +5,9 @@ This is an example project demonstrating Spring Boot
 To run this project locally, you must have the JDK installed and Java must be available on your 
 system's PATH. Once Java is installed, clone the project via Git with the following command:
 ```bash
-git clone 
+git clone git@github.com:mikemedina/spring-boot-example.git
 ```
-> If you haven't set up SSH, use `` instead of the url above
+> If you haven't set up SSH, use `https://github.com/mikemedina/spring-boot-example.git` instead of the url above
 
 ## Running the build
 To run the build via Gradle, `cd` into the repository directory and run the following command:
