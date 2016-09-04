@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:jtds:sqlserver://localhost:1433;databaseName=exampledb;user=sa;password=testpassword;
+    username: sa
+    password: testpassword
+
+    driver-class-name: net.sourceforge.jtds.jdbc.Driver
+    max-wait: 10000
+    max-active: 50
+  jpa:
+    show-sql: false
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com:
+      example: DEBUG
+    org:
+      springframework:
+        web: WARN
+      hibernate: ERROR
+
