@@ -1,4 +1,4 @@
-spring:
+spring:  # YML is a great alternative to XML. This file will regularly be seen as application.properties in XML format but works the same either way
   datasource:
     url: jdbc:jtds:sqlserver://localhost:1433;databaseName=exampledb;user=sa;password=testpassword;
     username: sa

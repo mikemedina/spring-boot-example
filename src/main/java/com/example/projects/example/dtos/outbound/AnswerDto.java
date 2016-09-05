@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Created by Mike on 9/3/2016.
  */
-public class AnswerDto {
-
+public class AnswerDto {  // It's a best practice to have your data objects not contain any logic
+                          // When you have objects like this that aren't Dto's or Entities, they're called POJOs = Plain Old Java Objects
     @JsonProperty
     private int value;
 

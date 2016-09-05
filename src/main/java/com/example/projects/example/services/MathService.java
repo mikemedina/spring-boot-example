@@ -14,19 +14,20 @@ import java.util.stream.Collectors;
 /**
  * Created by Mike on 9/3/2016.
  */
-@Service
+@Service  // This annotation registers the Service with Spring
+// A Controller directs traffic to a Service, the Service requests required information from a DAO (Data Access Object), then performs the business logic on it
 public class MathService {
 
-    private final IAnswerRepository answerRepo;
+    private final IAnswerRepository answerRepo;  // This is the DAO or Repo that this Service will be getting it's data from
 
-    public MathService(IAnswerRepository answerRepo) {
+    public MathService(IAnswerRepository answerRepo) {  // The repo gets assigned it's value through "Constructor Injection" which is a type of "Dependency Injection"
         this.answerRepo = answerRepo;
     }
 
-    public List<AnswerDto> listAll() {
+    public List<AnswerDto> listAll() {  // This method gets data from the DAO and then reformats it for the Controller. This is typical work for a Service.
         List<AnswerEntity> answerEntities = answerRepo.findAll();
         return answerEntities
-                .stream()
+                .stream()  // These few lines use Java 8's new "functional interfaces"; Java 8 also introduced Lambdas
                 .map(AnswerEntityAndDtoConverter::convertToDto)
                 .collect(Collectors.toList());
     }
@@ -35,13 +36,13 @@ public class MathService {
         AnswerEntity answerEntity = getAnswerEntity(mathDto);
         answerRepo.save(answerEntity);
 
-        AnswerDto answerDto = AnswerEntityAndDtoConverter.convertToDto(answerEntity);
-        return answerDto;
+        AnswerDto answerDto = AnswerEntityAndDtoConverter.convertToDto(answerEntity);  // This value could just be returned but I'm learning how much more readable
+        return answerDto;                                                              // code can be when you stop taking every shortcut and try to be more expressive
     }
 
     AnswerEntity getAnswerEntity(MathDto mathDto) {
         AnswerEntity answer = new AnswerEntity(mathDto.getFirstParam(), mathDto.getSecondParam(), 0, mathDto.getOperation());
-        switch (mathDto.getOperation()) {
+        switch (mathDto.getOperation()) {  // Switch statements work really well hand-in-hand with Enums
             case Add:
                 answer.setValue(answer.getFirstParam() + answer.getSecondParam());
                 break;

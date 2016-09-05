@@ -20,11 +20,11 @@ public class MathServiceTest extends BaseTest {
     private static final int VALUE = 6;
     private static final Operation OPERATION = Operation.Add;
 
-    private final IAnswerRepository answerRepo = mock(IAnswerRepository.class);
+    private final IAnswerRepository answerRepo = mock(IAnswerRepository.class);  // This is called "dependency mocking"
 
     private final MathService mathService = new MathService(answerRepo);
 
-    @Test
+    @Test  // Necessary to get Junit magic
     public void getAnswerEntityTest() throws Exception {
         MathDto mathDto = new MathDto(FIRST_PARAM, SECOND_PARAM, OPERATION);
         AnswerEntity actual = mathService.getAnswerEntity(mathDto);

@@ -6,7 +6,7 @@ import com.example.projects.example.entities.AnswerEntity;
 /**
  * Created by Mike on 9/4/2016.
  */
-public class AnswerEntityAndDtoConverter {
+public class AnswerEntityAndDtoConverter {  // This class is just a utility for converting... not much more to be said
 
     public static AnswerDto convertToDto(AnswerEntity answerEntity) {
         return new AnswerDto(answerEntity.getFirstParam(), answerEntity.getSecondParam(), answerEntity.getValue(), answerEntity.getOperation());

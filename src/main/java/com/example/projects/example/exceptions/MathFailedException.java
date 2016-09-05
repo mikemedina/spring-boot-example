@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 /**
  * Created by Mike on 9/4/2016.
  */
+// Spring will present this exception in the response to the client consuming the web service instead of a generic 500 server error
 @ResponseStatus(value= HttpStatus.INTERNAL_SERVER_ERROR, reason="There was an unexpected error while performing your calculation")
 public class MathFailedException extends RuntimeException {
 

@@ -6,9 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Created by Mike on 9/3/2016.
  */
-public class MathDto {
+public class MathDto {  // Dto = Data Transfer Object; it's another Java convention
 
-    @JsonProperty
+    @JsonProperty  // These annotations help Jackson serialize Java objects to JSON objects
     private int firstParam;
 
     @JsonProperty
